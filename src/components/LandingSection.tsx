@@ -178,7 +178,7 @@ const LandingSection = () => {
                   <div className="w-80 h-80 rounded-3xl overflow-hidden bg-[#F6EFE7] border border-[#E09789]/30 shadow-2xl shadow-[#E09789]/20">
                     <ImageWithFallback 
                       src="https://images.unsplash.com/photo-1659193788664-f085e3076db8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aW5pbWFsaXN0JTIwd29ya3NwYWNlJTIwZGVzaWdufGVufDF8fHx8MTc1OTM4NjYwOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                      alt="Sarah Chen - UX Designer"
+                      alt="Fredrik Fehrm - UX/UI Designer"
                       className="w-full h-full object-cover"
                     />
                   </div>
