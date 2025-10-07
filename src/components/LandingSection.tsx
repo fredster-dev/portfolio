@@ -161,7 +161,7 @@ const LandingSection = () => {
                     className="text-sm text-[#3C5556]/60 italic pt-4 lg:pt-8"
                   >
                     <p>
-                      "Design is not just what it looks like and feels like. Design is how it works." — Steve Jobs
+                      "Design is really an act of communication, which means having a deep understanding of the person with whom the designer is communicating." - Don Norman
                     </p>
                   </motion.div>
                 </motion.div>
