@@ -44,7 +44,7 @@ const LandingSection = () => {
                   className="text-center lg:text-left"
                 >
                   <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[#3C5556]">
-                    Sarah Chen
+                    Fredrik Fehrm
                   </h1>
                   <p className="text-lg sm:text-xl md:text-2xl text-[#E09789] font-medium mt-3">
                     UX & UI Designer
@@ -62,7 +62,7 @@ const LandingSection = () => {
                     <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-3xl overflow-hidden bg-[#F6EFE7] border border-[#E09789]/30 shadow-2xl shadow-[#E09789]/20">
                       <ImageWithFallback 
                         src="https://images.unsplash.com/photo-1659193788664-f085e3076db8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aW5pbWFsaXN0JTIwd29ya3NwYWNlJTIwZGVzaWdufGVufDF8fHx8MTc1OTM4NjYwOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                        alt="Sarah Chen - UX Designer"
+                        alt="Fredrik Fehrm - UX/UI Designer"
                         className="w-full h-full object-cover"
                       />
                     </div>
