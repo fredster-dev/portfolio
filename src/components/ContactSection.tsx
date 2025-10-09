@@ -8,15 +8,15 @@ const ContactSection = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'hello@yourname.com',
-      href: 'mailto:hello@yourname.com',
+      value: 'Fredrik.fehrm@gmail.com',
+      href: 'mailto:Fredrik.fehrm@gmail.com',
       description: 'Drop me a line'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: '/in/yourname',
-      href: 'https://linkedin.com/in/yourname',
+      value: '/in/FredrikFehrm',
+      href: 'https://www.linkedin.com/in/fredrik-fehrm-9471a9360/',
       description: 'Connect professionally'
     },
     {
