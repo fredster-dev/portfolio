@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import profileImage from 'figma:asset/607e3569c7b94e52cac1291d1924370d2de99715.png';
 
 const LandingSection = () => {
   return (
@@ -43,11 +43,11 @@ const LandingSection = () => {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="text-center lg:text-left"
                 >
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[#3C5556]">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[#353B45]">
                     Fredrik Fehrm
                   </h1>
-                  <p className="text-lg sm:text-xl md:text-2xl text-[#E09789] font-medium mt-3">
-                    UX & UI Designer
+                  <p className="text-lg sm:text-xl md:text-2xl text-[#353B45] font-medium mt-3">
+                    UX/UI Designer with Frontend Development Skills
                   </p>
                 </motion.div>
 
@@ -60,9 +60,9 @@ const LandingSection = () => {
                 >
                   <div className="relative">
                     <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-3xl overflow-hidden bg-[#F6EFE7] border border-[#E09789]/30 shadow-2xl shadow-[#E09789]/20">
-                      <ImageWithFallback 
-                        src="https://images.unsplash.com/photo-1659193788664-f085e3076db8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aW5pbWFsaXN0JTIwd29ya3NwYWNlJTIwZGVzaWdufGVufDF8fHx8MTc1OTM4NjYwOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                        alt="Fredrik Fehrm - UX/UI Designer"
+                      <img 
+                        src={profileImage}
+                        alt="Fredrik Fehrm - UX Designer"
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -83,7 +83,7 @@ const LandingSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.7 }}
-                  className="text-base sm:text-lg text-[#3C5556]/80 leading-relaxed max-w-xl mx-auto lg:mx-0"
+                  className="text-base sm:text-lg text-[#353B45] leading-relaxed max-w-xl mx-auto lg:mx-0"
                 >
                   I craft meaningful digital experiences through empathy-driven design, user research, and thoughtful interaction. 
                   Passionate about creating intuitive interfaces that bridge human needs and technology.
@@ -110,7 +110,7 @@ const LandingSection = () => {
                         }, 500);
                       }
                     }}
-                    className="px-3 py-2 sm:px-4 sm:py-2 bg-[#F5D4C3]/60 text-[#3C5556] rounded-xl text-sm font-medium cursor-pointer hover:bg-[#F5D4C3]/80 transition-all duration-300 hover:scale-105"
+                    className="px-3 py-2 sm:px-4 sm:py-2 bg-[#F5D4C3]/60 text-[#353B45] rounded-xl text-sm font-medium cursor-pointer hover:bg-[#F5D4C3]/80 transition-all duration-300 hover:scale-105"
                   >
                     User Research
                   </button>
@@ -129,7 +129,7 @@ const LandingSection = () => {
                         }, 500);
                       }
                     }}
-                    className="px-3 py-2 sm:px-4 sm:py-2 bg-[#C8DBD7]/60 text-[#3C5556] rounded-xl text-sm font-medium cursor-pointer hover:bg-[#C8DBD7]/80 transition-all duration-300 hover:scale-105"
+                    className="px-3 py-2 sm:px-4 sm:py-2 bg-[#C8DBD7]/60 text-[#353B45] rounded-xl text-sm font-medium cursor-pointer hover:bg-[#C8DBD7]/80 transition-all duration-300 hover:scale-105"
                   >
                     Interface Design
                   </button>
@@ -142,13 +142,13 @@ const LandingSection = () => {
                         setTimeout(() => {
                           const aestheticsCard = document.querySelector('[data-value="aesthetics"]');
                           if (aestheticsCard) {
-                            aestheticsCard.classList.add('ring-2', 'ring-[#E9F1EF]', 'ring-opacity-60');
-                            setTimeout(() => aestheticsCard.classList.remove('ring-2', 'ring-[#E9F1EF]', 'ring-opacity-60'), 2000);
+                            aestheticsCard.classList.add('ring-4', 'ring-[#3C5556]', 'ring-opacity-70');
+                            setTimeout(() => aestheticsCard.classList.remove('ring-4', 'ring-[#3C5556]', 'ring-opacity-70'), 2000);
                           }
                         }, 500);
                       }
                     }}
-                    className="px-3 py-2 sm:px-4 sm:py-2 bg-[#E9F1EF]/60 text-[#3C5556] rounded-xl text-sm font-medium cursor-pointer hover:bg-[#E9F1EF]/80 transition-all duration-300 hover:scale-105"
+                    className="px-3 py-2 sm:px-4 sm:py-2 bg-[#A8D5D1] text-[#353B45] rounded-xl text-sm font-medium cursor-pointer hover:bg-[#8DC7C2] transition-all duration-300 hover:scale-105"
                   >
                     Prototyping
                   </button>
@@ -158,7 +158,7 @@ const LandingSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 1.0 }}
-                    className="text-sm text-[#3C5556]/60 italic pt-4 lg:pt-8"
+                    className="text-sm text-[#5A6C6D] italic pt-4 lg:pt-8"
                   >
                     <p>
                       "Design is really an act of communication, which means having a deep understanding of the person with whom the designer is communicating." - Don Norman
@@ -176,9 +176,9 @@ const LandingSection = () => {
               >
                 <div className="relative">
                   <div className="w-80 h-80 rounded-3xl overflow-hidden bg-[#F6EFE7] border border-[#E09789]/30 shadow-2xl shadow-[#E09789]/20">
-                    <ImageWithFallback 
-                      src="https://images.unsplash.com/photo-1659193788664-f085e3076db8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aW5pbWFsaXN0JTIwd29ya3NwYWNlJTIwZGVzaWdufGVufDF8fHx8MTc1OTM4NjYwOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                      alt="Fredrik Fehrm - UX/UI Designer"
+                    <img 
+                      src={profileImage}
+                      alt="Fredrik Fehrm - UX Designer"
                       className="w-full h-full object-cover"
                     />
                   </div>

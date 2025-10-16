@@ -5,6 +5,8 @@ import { Badge } from './ui/badge';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import ProjectModal from './ProjectModal';
 import { ExternalLink, ArrowUpRight } from 'lucide-react';
+import vannerImage from 'figma:asset/abbea66072bd270c559f35852c27edd34a568f91.png';
+import financeDashboardImage from 'figma:asset/df38519770c6da1d9800ea48182994a074c4d22d.png';
 
 interface Project {
   id: string;
@@ -20,6 +22,7 @@ interface Project {
   process: string[];
   outcome: string;
   impact: string[];
+  projectLink: string;
 }
 
 const ProjectsSection = () => {
@@ -29,81 +32,84 @@ const ProjectsSection = () => {
   const projects: Project[] = [
     {
       id: '1',
-      title: 'HealthTracker Mobile App',
-      tagline: 'Simplifying wellness tracking for busy professionals',
-      image: 'https://images.unsplash.com/photo-1658953229625-aad99d7603b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU5NDE1NTg5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      category: 'Mobile App',
-      duration: '3 months',
-      role: 'Lead UX Designer',
-      tools: ['Figma', 'Trello', 'Maze', 'UserTesting'],
-      problem: 'Busy professionals struggled to maintain consistent health tracking habits due to complex interfaces and time-consuming data entry in existing wellness apps.',
-      solution: 'A streamlined mobile app with voice input, smart defaults, and contextual reminders that adapts to users\' schedules and preferences.',
+      title: 'VÄNNER - A concept for friendship and belonging',
+      tagline: 'Understanding loneliness and designing pathways to new friendships',
+      image: vannerImage,
+      category: 'UX Research & Design',
+      duration: '4 months',
+      role: 'UX/UI Designer focusing on accessibility and visual identity',
+      tools: ['Figma', 'Google Fonts', 'WCAG guidelines', 'color and typography research'],
+      problem: 'Many people struggle to form new friendships once their social environments change. Our research focused on individuals who spend a lot of time indoors and find it difficult to reconnect socially after school, work shifts or unemployed.',
+      solution: 'To understand the emotional and practical barriers behind social isolation and to explore how design can encourage small, positive steps toward connection and belonging outside their homes.',
       process: [
-        'Conducted user interviews with 15 working professionals to understand pain points and behaviors',
-        'Created user personas and journey maps to identify key moments for intervention',
-        'Designed and tested low-fidelity wireframes focusing on quick interactions',
-        'Developed high-fidelity prototypes with micro-interactions and voice integration',
-        'Conducted usability testing with 8 participants and iterated based on feedback'
+        'Through empathy mapping and user research, we identified patterns of loneliness rooted in uncertainty, low confidence, and lack of accessible opportunities to meet others. Our main persona, Kalle, represented a young adult who wants to meet people but feels unsure where or how to start.',
+        'We found that people like Kalle need clear, low-pressure ways to engage socially. They benefit from predictable information, gentle reminders, and reassurance that participation is always a choice. Safety, clarity, and encouragement became the foundation of every design decision.',
+        'We explored how a digital product could act as a supportive bridge into real-world connection. Early sketches and lo-fi prototypes tested ideas like event feeds, feedback messages and scheduling tools, all focused on making interaction feel safe and motivating.',
+        'Rather than designing for performance or popularity, we aimed to design for comfort and trust. The design emphasized structure, emotional tone, and accessibility rather than visual polish.'
       ],
-      outcome: 'The app achieved a 40% increase in daily active users and reduced average logging time from 3 minutes to 30 seconds.',
+      outcome: 'The result was a concept for a simple and reassuring platform that helps users build social confidence through small, positive experiences. The design emphasized structure, emotional tone, and accessibility rather than visual polish, laying the groundwork for future development.',
       impact: [
-        '40% increase in daily active users',
-        '85% reduction in data entry time',
-        '4.6/5 star rating in app stores',
-        '60% improvement in user retention rate'
-      ]
+        'Loneliness often stems from uncertainty more than lack of opportunity',
+        'Design can reduce fear by offering guidance and predictability',
+        'Understanding people\'s emotions can be just as important as solving their practical needs',
+        'Comfort and trust are essential foundations for social platforms'
+      ],
+      projectLink: 'https://www.figma.com/design/Ql9U2CxELqaTBtVrBhOkn4/V%C3%84NNER?node-id=793-5315&t=RDmGiz8O9UPvUaa0-1'
     },
     {
       id: '2',
-      title: 'EcoCommerce Dashboard',
-      tagline: 'Empowering sustainable businesses with actionable insights',
-      image: 'https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkYXNoYm9hcmQlMjBkZXNpZ258ZW58MXx8fHwxNzU5NDc4NTM5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      category: 'Web Platform',
-      duration: '4 months',
-      role: 'Senior UX Designer',
-      tools: ['Figma', 'React', 'HTTPie', 'Github'],
-      problem: 'Small sustainable businesses lacked the tools to effectively track and communicate their environmental impact to customers and stakeholders.',
-      solution: 'An intuitive dashboard that visualizes sustainability metrics and generates shareable impact reports with minimal setup required.',
+      title: 'Finance Dashboard - Designing an intuitive system for financial insight',
+      tagline: 'Transforming complex financial data into clear, actionable insights',
+      image: financeDashboardImage,
+      category: 'Financial Dashboard Design',
+      duration: 'Chas Challenge',
+      role: 'UX/UI Designer',
+      tools: ['Figma', 'Trello', 'Agile workflow', 'WCAG guidelines'],
+      problem: 'Financial dashboards often overwhelm users with dense information, unclear structure, and limited visual hierarchy. Our team was tasked with improving an existing analysis tool so that users could interpret financial data faster and gain a sense of control and insight through a clearer experience.',
+      solution: 'To design a concept for a financial analysis system that communicates economic insight and control in a modern, inspiring, and accessible way.',
       process: [
-        'Analyzed existing analytics tools and identified gaps in sustainability tracking',
-        'Facilitated workshops with business owners to understand their reporting needs',
-        'Created information architecture and user flows for different user types',
-        'Designed responsive dashboard layouts with progressive disclosure principles',
-        'Validated designs through A/B testing and heat map analysis'
+        'Research & Market Analysis: Reviewed existing dashboard tools to find opportunities for improvement and define usability gaps. Conducted qualitative interviews and analyzed behavioral patterns to understand how users interact with data.',
+        'Workshops & Collaboration: Facilitated collaborative workshops including Crazy 8s for rapid ideation, The Fork for prioritizing ideas, and Behavioral Stations to examine user behaviors from different perspectives. These helped align UX, front-end, and DevOps teams around shared user goals.',
+        'Concept & Ideation: Created early sketches and low-fidelity wireframes focusing on data hierarchy, flow, and accessibility. Worked in an agile process with weekly goals focused on research, ideation, prototyping, testing, and iteration.',
+        'Prototyping & Testing: Built several interactive prototypes in Figma. Conducted user tests, guerrilla tests, and follow-up sessions to validate clarity and usability.',
+        'Iteration: The design went through six major iterations based on user and stakeholder feedback, improving readability, contrast, and structure with each round.',
+        'Handover: Delivered the final prototype and design documentation to the front-end development team for implementation.'
       ],
-      outcome: 'The platform helped 200+ businesses increase customer trust and achieved 92% user satisfaction scores.',
+      outcome: 'The final prototype presented a streamlined, visually consistent dashboard that made financial data feel intuitive and actionable. Users could filter, analyze, and save searches efficiently, while the product owners felt the structure aligned with their vision for a modern, insight-driven experience.',
       impact: [
-        '200+ businesses onboarded in first quarter',
-        '92% user satisfaction score',
-        '3x increase in sustainability report generation',
-        '45% improvement in customer engagement rates'
-      ]
+        'Collaboration between UX, DevOps, and front-end teams leads to stronger design solutions',
+        'Iterative testing builds confidence and uncovers hidden usability issues',
+        'Accessibility and structure are essential when turning complex data into clear, meaningful insight',
+        'Cross-disciplinary workshops align teams around user goals and shared understanding'
+      ],
+      projectLink: 'https://www.figma.com/slides/ynzDFToVvfljwQki5L6EH0/F%C3%B6retagsf%C3%B6rfr%C3%A5gan-ChasChallange?node-id=15-93&t=41LjEymG7FtBNc4I-0'
     },
     {
       id: '3',
-      title: 'Learning Hub Research Platform',
-      tagline: 'Connecting researchers with participants seamlessly',
-      image: 'https://images.unsplash.com/photo-1587355760421-b9de3226a046?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1c2VyJTIwZXhwZXJpZW5jZSUyMHJlc2VhcmNofGVufDF8fHx8MTc1OTQxNzQyOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      category: 'Research Tool',
-      duration: '6 months',
-      role: 'UX Researcher & Designer',
-      tools: ['Figma', 'Miro', 'Trello', 'Github'],
-      problem: 'Academic researchers spent 60% of their time on administrative tasks instead of actual research due to fragmented tools for participant recruitment and session management.',
-      solution: 'An integrated platform that automates participant matching, scheduling, and consent management while maintaining ethical research standards.',
+      title: 'Native React Application',
+      tagline: 'Cross-platform mobile development with React Native',
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NTk0MTc0Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      category: 'Mobile Development',
+      duration: '5 months',
+      role: 'Designer & Developer',
+      tools: ['React Native', 'JavaScript', 'UI/UX Design', 'GitHub'],
+      problem: 'Creating consistent, high-quality mobile experiences across iOS and Android platforms while maintaining development efficiency and code quality.',
+      solution: 'A well-architected React Native application demonstrating best practices in component design, state management, and cross-platform development patterns.',
       process: [
-        'Shadowed researchers at 3 universities to understand their complete workflow',
-        'Mapped the research participant journey from recruitment to completion',
-        'Co-designed solutions with researchers through iterative design sprints',
-        'Built and tested prototypes with real research studies',
-        'Collaborated with ethics boards to ensure compliance with research standards'
+        'Designed component architecture following React Native best practices',
+        'Implemented responsive layouts adapting to different screen sizes',
+        'Created reusable UI components with consistent styling',
+        'Optimized performance for smooth animations and interactions',
+        'Documented code and patterns for team collaboration and maintenance'
       ],
-      outcome: 'Reduced administrative overhead by 65% and increased research study completion rates by 30%.',
+      outcome: 'Successfully built a production-ready mobile application showcasing technical proficiency and design implementation skills.',
       impact: [
-        '65% reduction in administrative time',
-        '30% increase in study completion rates',
-        'Used by 12 universities in pilot program',
-        '98% researcher satisfaction with platform'
-      ]
+        'Clean, maintainable codebase with clear structure',
+        'Smooth user experience across platforms',
+        'Reusable component library for scalability',
+        'Performance-optimized for production deployment'
+      ],
+      projectLink: 'https://github.com/fredster-dev/Native-React-app'
     }
   ];
 
@@ -148,17 +154,25 @@ const ProjectsSection = () => {
                 onClick={() => openModal(project)}
               >
                 <div className="aspect-video bg-muted rounded-t-lg overflow-hidden relative">
-                  <ImageWithFallback 
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
+                  {project.id === '1' || project.id === '2' ? (
+                    <img 
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                  ) : (
+                    <ImageWithFallback 
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute top-4 right-4 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
                     <ArrowUpRight className="w-4 h-4 text-slate-600" />
                   </div>
                 </div>
-                <CardContent className="p-6 relative">
+                <CardContent className="p-6 relative pb-7">
                   <div className="flex items-center justify-between mb-3">
                     <Badge 
                       variant="secondary" 
@@ -174,7 +188,7 @@ const ProjectsSection = () => {
                   <p className="text-muted-foreground leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
                     {project.tagline}
                   </p>
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-300 via-slate-400 to-slate-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-300 via-slate-400 to-slate-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-lg"></div>
                 </CardContent>
               </Card>
             </motion.div>

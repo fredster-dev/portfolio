@@ -9,7 +9,7 @@ const AboutSection = () => {
       title: 'Empathy',
       description: 'Understanding user needs and emotions drives every design decision I make.',
       bgColor: 'bg-[#F5D4C3]/70',
-      iconColor: 'text-[#3C5556]',
+      iconColor: 'text-[#353B45]',
       borderColor: 'border-[#F5D4C3]/80'
     },
     {
@@ -17,16 +17,16 @@ const AboutSection = () => {
       title: 'Usability',
       description: 'Creating intuitive interfaces that feel natural and effortless to use.',
       bgColor: 'bg-[#C8DBD7]/70',
-      iconColor: 'text-[#3C5556]',
+      iconColor: 'text-[#353B45]',
       borderColor: 'border-[#C8DBD7]/80'
     },
     {
       icon: Palette,
       title: 'Aesthetics',
       description: 'Balancing beautiful visuals with functional design for memorable experiences.',
-      bgColor: 'bg-[#E9F1EF]/70',
-      iconColor: 'text-[#3C5556]',
-      borderColor: 'border-[#E9F1EF]/80'
+      bgColor: 'bg-[#A8D5D1]/80',
+      iconColor: 'text-[#353B45]',
+      borderColor: 'border-[#8DC7C2]/80'
     }
   ];
 
@@ -42,14 +42,14 @@ const AboutSection = () => {
         >
           <div className="flex items-center justify-center mb-8">
             <div className="h-px bg-[#E09789]/60 w-16 mr-6"></div>
-            <h2 className="text-[#3C5556]">About Me</h2>
+            <h2 className="text-[#353B45]">About Me</h2>
             <div className="h-px bg-[#E09789]/60 w-16 ml-6"></div>
           </div>
           <div className="max-w-3xl mx-auto space-y-6 text-muted-foreground">
             <p>
-              <strong className="font-medium text-[#3C5556]">Creativity and listening to other people's needs</strong> have always been important to me, and I also learn best when I <strong className="font-medium text-[#3C5556]">interact with others</strong>. 
-              I'm genuinely interested in why solutions are the way they are, but I always try to figure out how to <strong className="font-medium text-[#3C5556]">improve them</strong>.   
-              I believe <strong className="font-medium text-[#3C5556]">collaborating with cross-functional teams</strong> where honest criticism is given and taken, is important for development as a UX designer!
+              <strong className="font-medium text-[#353B45]">Creativity and listening to other people's needs</strong> have always been important to me, and I also learn best when I <strong className="font-medium text-[#353B45]">interact with others</strong>. 
+              I'm genuinely interested in why solutions are the way they are, but I always try to figure out how to <strong className="font-medium text-[#353B45]">improve them</strong>.   
+              I believe <strong className="font-medium text-[#353B45]">collaborating with cross-functional teams</strong> where honest criticism is given and taken, is important for development as a UX designer!
             </p>
           </div>
         </motion.div>
