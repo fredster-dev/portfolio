@@ -2,6 +2,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Badge } from './ui/badge';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ScrollArea } from './ui/scroll-area';
+import { ExternalLink } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -17,6 +18,7 @@ interface Project {
   process: string[];
   outcome: string;
   impact: string[];
+  projectLink: string;
 }
 
 interface ProjectModalProps {
@@ -27,6 +29,38 @@ interface ProjectModalProps {
 
 const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
   if (!project) return null;
+
+  // Brand-specific button colors with WCAG AA compliance
+  const getButtonStyles = () => {
+    switch (project.id) {
+      case '1': // VÄNNER - Green
+        return {
+          bg: 'bg-[#2D5F5D]', // Darker green for better contrast
+          hover: 'hover:bg-[#234948]',
+          text: 'text-white'
+        };
+      case '2': // eSyn - Blue
+        return {
+          bg: 'bg-[#2563EB]', // Blue with good contrast
+          hover: 'hover:bg-[#1D4ED8]',
+          text: 'text-white'
+        };
+      case '3': // Native React - Coral
+        return {
+          bg: 'bg-[#D67B6D]', // Slightly darker coral for better contrast
+          hover: 'hover:bg-[#C96A5C]',
+          text: 'text-white'
+        };
+      default:
+        return {
+          bg: 'bg-[#E09789]',
+          hover: 'hover:bg-[#D67B6D]',
+          text: 'text-white'
+        };
+    }
+  };
+
+  const buttonStyles = getButtonStyles();
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -39,14 +73,22 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
         </DialogHeader>
         
         <ScrollArea className="max-h-[80vh]">
-          <div className="space-y-8">
+          <div className="space-y-8 pb-4 pr-4">
             {/* Hero Image */}
             <div className="w-full h-64 rounded-lg overflow-hidden bg-muted">
-              <ImageWithFallback 
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
+              {project.id === '1' || project.id === '2' ? (
+                <img 
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <ImageWithFallback 
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              )}
             </div>
 
             {/* Project Overview */}
@@ -114,6 +156,19 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* View Project Button - Moved slightly to the left */}
+            <div className="pt-4 border-t border-border flex justify-end pr-2">
+              <a
+                href={project.projectLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 px-6 py-3 ${buttonStyles.bg} ${buttonStyles.text} rounded-xl ${buttonStyles.hover} transition-colors duration-300 shadow-md hover:shadow-lg`}
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span>View Project</span>
+              </a>
             </div>
           </div>
         </ScrollArea>

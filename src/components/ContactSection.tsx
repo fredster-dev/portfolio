@@ -8,15 +8,15 @@ const ContactSection = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'Fredrik.fehrm@gmail.com',
-      href: 'mailto:Fredrik.fehrm@gmail.com',
+      value: 'hello@yourname.com',
+      href: 'mailto:hello@yourname.com',
       description: 'Drop me a line'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: '/in/FredrikFehrm',
-      href: 'https://www.linkedin.com/in/fredrik-fehrm-9471a9360/',
+      value: '/in/yourname',
+      href: 'https://linkedin.com/in/yourname',
       description: 'Connect professionally'
     },
     {
@@ -80,13 +80,13 @@ const ContactSection = () => {
                   <div className="w-12 h-12 mx-auto mb-4 bg-[#E9F1EF] rounded-full flex items-center justify-center group-hover:bg-[#3C5556] group-hover:text-white transition-all duration-300 border border-[#3C5556]/30">
                     <link.icon className="w-6 h-6" />
                   </div>
-                  <h4 className="mb-2 group-hover:text-[#3C5556] transition-colors text-[#3C5556]">
+                  <h4 className="mb-2 group-hover:text-[#353B45] transition-colors text-[#353B45]">
                     {link.label}
                   </h4>
-                  <p className="text-[#3C5556]/70 text-sm mb-2">
+                  <p className="text-[#5A6C6D] text-sm mb-2">
                     {link.description}
                   </p>
-                  <p className="text-[#E09789] group-hover:underline group-hover:text-[#3C5556] transition-colors">
+                  <p className="text-[#3C5556] group-hover:underline group-hover:text-[#353B45] transition-colors">
                     {link.value}
                   </p>
                 </CardContent>
@@ -103,7 +103,7 @@ const ContactSection = () => {
           className="mt-20 pt-8 border-t border-border"
         >
           <p className="text-muted-foreground">
-            © 2024 Your Name. Designed and built with care.
+            © 2025 Fredrik Fehrm. Designed and built with care.
           </p>
         </motion.footer>
       </div>

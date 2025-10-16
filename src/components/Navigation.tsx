@@ -88,8 +88,8 @@ const Navigation = () => {
               onClick={() => scrollToSection(item.id)}
               className={`px-3 py-2.5 lg:px-5 lg:py-2.5 rounded-xl transition-all duration-300 text-xs lg:text-sm font-medium cursor-pointer ${
                 activeSection === item.id 
-                  ? 'text-[#3C5556] bg-gradient-to-r from-[#E09789]/20 to-[#E09789]/10 shadow-sm border border-[#E09789]/30' 
-                  : 'text-[#3C5556]/70 hover:text-[#3C5556] hover:bg-[#F6EFE7]/50'
+                  ? 'text-[#353B45] bg-gradient-to-r from-[#E09789]/20 to-[#E09789]/10 shadow-sm border border-[#E09789]/30' 
+                  : 'text-[#353B45]/70 hover:text-[#353B45] hover:bg-[#F6EFE7]/50'
               }`}
             >
               {item.label}
