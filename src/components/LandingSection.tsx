@@ -85,8 +85,8 @@ const LandingSection = () => {
                   transition={{ duration: 0.8, delay: 0.7 }}
                   className="text-base sm:text-lg text-[#353B45] leading-relaxed max-w-xl mx-auto lg:mx-0"
                 >
-                  I craft meaningful digital experiences through empathy-driven design, user research, and thoughtful interaction. 
-                  Passionate about creating intuitive interfaces that bridge human needs and technology.
+                  I enjoy turning ideas into experiences that make sense for real people.
+                  My process always starts with curiosity, understanding needs, testing ideas, and shaping designs that feel intuitive and honest.
                 </motion.p>
 
                 <motion.div
