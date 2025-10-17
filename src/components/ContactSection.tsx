@@ -1,30 +1,30 @@
 import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
-import { Mail, Linkedin, MessageSquare, Download } from 'lucide-react';
+import { Mail, Linkedin, Github, Download } from 'lucide-react';
 
 const ContactSection = () => {
   const contactLinks = [
     {
       icon: Mail,
       label: 'Email',
-      value: 'Fredrik.fehrm@gmail.com',
-      href: 'mailto:Fredrik.fehrm@gmail.com',
-      description: 'Just mail me!'
+      value: 'fredrik.fehrm@chasacademy.se',
+      href: 'mailto:fredrik.fehrm@chasacademy.se',
+      description: 'Drop me a line'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: '/in/FredikFehrm',
-      href: 'https://www.linkedin.com/in/fredrik-fehrm-9471a9360/',
+      value: 'Fredrik Fehrm',
+      href: 'https://www.linkedin.com/in/fredrik-fehrm/',
       description: 'Connect professionally'
     },
     {
-      icon: MessageSquare,
-      label: 'Portfolio Contact Form',
-      value: 'Send a message',
-      href: '#contact-form',
-      description: 'Lets people message you without revealing your email publicly'
+      icon: Github,
+      label: 'GitHub',
+      value: 'fredster-dev',
+      href: 'https://github.com/fredster-dev',
+      description: 'View my code'
     }
   ];
 

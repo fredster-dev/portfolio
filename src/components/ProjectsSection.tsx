@@ -6,7 +6,7 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import ProjectModal from './ProjectModal';
 import { ExternalLink, ArrowUpRight } from 'lucide-react';
 import vannerImage from 'figma:asset/abbea66072bd270c559f35852c27edd34a568f91.png';
-import financeDashboardImage from 'figma:asset/df38519770c6da1d9800ea48182994a074c4d22d.png';
+import financeDashboardImage from 'figma:asset/ffd55bff402d5d163eeb4022a564e3b57f3fabaa.png';
 
 interface Project {
   id: string;
@@ -86,28 +86,28 @@ const ProjectsSection = () => {
     },
     {
       id: '3',
-      title: 'Native React Application',
-      tagline: 'Cross-platform mobile development with React Native',
+      title: 'Mission: (Usage) Impossible',
+      tagline: 'Building a React Native app with intentionally bad UX',
       image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NTk0MTc0Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      category: 'Mobile Development',
-      duration: '5 months',
+      category: 'React Native Development',
+      duration: 'React Native Course',
       role: 'Designer & Developer',
-      tools: ['React Native', 'JavaScript', 'UI/UX Design', 'GitHub'],
-      problem: 'Creating consistent, high-quality mobile experiences across iOS and Android platforms while maintaining development efficiency and code quality.',
-      solution: 'A well-architected React Native application demonstrating best practices in component design, state management, and cross-platform development patterns.',
+      tools: ['React Native', 'Expo', 'Firebase'],
+      problem: 'To design and build a mobile app that intentionally breaks every UX best practice, creating the worst possible user experience while still being fully functional and technically sound. This exercise was part of the React Native course, aimed at exploring how poor design decisions affect usability, accessibility, and overall user satisfaction.',
+      solution: 'A fully working cross-platform mobile app built with React Native and Firebase. The project included a frustratingly confusing registration and login flow, slow animations, unclear feedback, and awkward navigation, all by design. Behind the chaos, however, the app architecture was clean, modular, and technically correct, showcasing the balance between bad UX and good code.',
       process: [
-        'Designed component architecture following React Native best practices',
-        'Implemented responsive layouts adapting to different screen sizes',
-        'Created reusable UI components with consistent styling',
-        'Optimized performance for smooth animations and interactions',
-        'Documented code and patterns for team collaboration and maintenance'
+        'Planned component structure using React Native and Expo for cross-platform development',
+        'Designed intentionally confusing UI layouts and error states',
+        'Implemented authentication flow with Firebase backend',
+        'Tested on both iOS and Android to ensure consistent frustration',
+        'Documented technical setup, dependencies, and lessons learned in the project README'
       ],
-      outcome: 'Successfully built a production-ready mobile application showcasing technical proficiency and design implementation skills.',
+      outcome: 'The project humorously demonstrated how small design choices such as spacing, colors, feedback timing, and structure can completely ruin usability. Despite the deliberate UX chaos, the result was a fully functional, production-ready mobile app with clean React code and reusable components.',
       impact: [
-        'Clean, maintainable codebase with clear structure',
-        'Smooth user experience across platforms',
-        'Reusable component library for scalability',
-        'Performance-optimized for production deployment'
+        'Good code cannot save bad UX',
+        'Understanding what not to do is essential for great design',
+        'Firebase integration and Expo workflows simplified cross-platform testing',
+        'Even an intentionally terrible app can teach valuable lessons about empathy and accessibility'
       ],
       projectLink: 'https://github.com/fredster-dev/Native-React-app'
     }
@@ -135,8 +135,7 @@ const ProjectsSection = () => {
         >
           <h2 className="mb-6">Selected Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Here are some projects that showcase my approach to solving complex user problems 
-            through research, design, and iteration.
+            Projects that show how I approach design: listening, testing, and shaping ideas into something that works for people.
           </p>
         </motion.div>
 
@@ -150,7 +149,7 @@ const ProjectsSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card 
-                className="group cursor-pointer border border-slate-200/50 shadow-sm bg-white/80 backdrop-blur-sm hover:shadow-xl hover:shadow-slate-200/60 hover:border-slate-300/60 hover:-translate-y-2 transition-all duration-500 h-full overflow-hidden"
+                className="group cursor-pointer border border-slate-200/50 shadow-sm bg-white/80 backdrop-blur-sm hover:shadow-xl hover:shadow-slate-200/60 hover:border-slate-300/60 hover:-translate-y-2 transition-all duration-500 h-full overflow-hidden relative flex flex-col"
                 onClick={() => openModal(project)}
               >
                 <div className="aspect-video bg-muted rounded-t-lg overflow-hidden relative">
@@ -172,7 +171,7 @@ const ProjectsSection = () => {
                     <ArrowUpRight className="w-4 h-4 text-slate-600" />
                   </div>
                 </div>
-                <CardContent className="p-6 relative pb-7">
+                <CardContent className="p-6 pb-7 flex-1 flex flex-col">
                   <div className="flex items-center justify-between mb-3">
                     <Badge 
                       variant="secondary" 
@@ -188,8 +187,8 @@ const ProjectsSection = () => {
                   <p className="text-muted-foreground leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
                     {project.tagline}
                   </p>
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-300 via-slate-400 to-slate-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-lg"></div>
                 </CardContent>
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-300 via-slate-400 to-slate-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-lg"></div>
               </Card>
             </motion.div>
           ))}
