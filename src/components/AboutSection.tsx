@@ -1,55 +1,33 @@
 import { motion } from 'motion/react';
-import { Card, CardContent } from './ui/card';
-import { Heart, Users, Palette } from 'lucide-react';
+import { howIWork } from '../data/howIWork';
 
 const AboutSection = () => {
-  const values = [
-    {
-      icon: Heart,
-      title: 'Empathy',
-      description: 'Understanding user needs and emotions drives every design decision I make.',
-      bgColor: 'bg-[#F5D4C3]/70',
-      iconColor: 'text-[#353B45]',
-      borderColor: 'border-[#F5D4C3]/80'
-    },
-    {
-      icon: Users,
-      title: 'Usability',
-      description: 'Creating intuitive interfaces that feel natural and effortless to use.',
-      bgColor: 'bg-[#C8DBD7]/70',
-      iconColor: 'text-[#353B45]',
-      borderColor: 'border-[#C8DBD7]/80'
-    },
-    {
-      icon: Palette,
-      title: 'Aesthetics',
-      description: 'Balancing beautiful visuals with functional design for memorable experiences.',
-      bgColor: 'bg-[#A8D5D1]/80',
-      iconColor: 'text-[#353B45]',
-      borderColor: 'border-[#8DC7C2]/80'
-    }
-  ];
-
   return (
-    <section id="about" className="pt-8 pb-16 px-8 relative z-10 bg-[#F8F5EE]">
-      <div className="max-w-4xl mx-auto">
+    <section id="about" className="sec pb-16 px-4 sm:px-8">
+      <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="float about-block"
         >
-          <div className="flex items-center justify-center mb-8">
-            <div className="h-px bg-[#E09789]/60 w-16 mr-6"></div>
-            <h2 className="text-[#353B45]">About Me</h2>
-            <div className="h-px bg-[#E09789]/60 w-16 ml-6"></div>
-          </div>
-          <div className="max-w-3xl mx-auto space-y-6 text-muted-foreground">
+          <h2 className="section-title">About Me</h2>
+          <div className="about-copy">
             <p>
-              <strong className="font-medium text-[#353B45]">Creativity and listening to other people's needs</strong> have always been important to me, and I also learn best when I <strong className="font-medium text-[#353B45]">interact with others</strong>. 
-              I'm genuinely interested in why solutions are the way they are, but I always try to figure out how to <strong className="font-medium text-[#353B45]">improve them</strong>.   
-              I believe <strong className="font-medium text-[#353B45]">collaborating with cross-functional teams</strong> where honest criticism is given and taken, is important for development as a UX designer!
+              When something is hard to trust or hard to understand, the problem is almost never that the
+              user doesn't get it. It's that the product hasn't managed to explain itself. That's the part I
+              find interesting.
+            </p>
+            <p>
+              As a UX designer, I see myself as a bridge between the users and the company. They don't always
+              want the same things, so a big part of my work is finding solutions that work for both.
+            </p>
+            <p>
+              I like finding the small problems people have stopped noticing because they've gotten used to
+              them, and figuring out what's actually causing them. I do the same outside of work. If something
+              keeps slowing down my day, I'll usually try to build something to fix it. Right now, that's an
+              app I'm working on to make starting my workday a little easier.
             </p>
           </div>
         </motion.div>
@@ -58,35 +36,39 @@ const AboutSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="hiw-wrap"
         >
-          <h3 className="text-center mb-12">My Design Values</h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <motion.div
-                key={value.title}
+          <h3 id="how-i-work" className="section-title" data-scroll-target>
+            How I work
+          </h3>
+          <ol className="hiw-grid" role="list" data-spotlight-group>
+            {howIWork.map((item, index) => (
+              <motion.li
+                key={item.key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card 
-                  className={`${value.bgColor} ${value.borderColor} border shadow-sm h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300`}
-                  data-value={value.title.toLowerCase()}
+                <article
+                  id={`hiw-${item.key}`}
+                  className={`float hiw-card hiw-card--${index + 1}`}
+                  data-scroll-target
                 >
-                  <CardContent className="p-8 text-center">
-                    <div className={`w-12 h-12 mx-auto mb-4 bg-white/80 rounded-full flex items-center justify-center border ${value.borderColor}`}>
-                      <value.icon className={`w-6 h-6 ${value.iconColor}`} />
-                    </div>
-                    <h4 className="mb-3">{value.title}</h4>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {value.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                  <span className="hiw-num" aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h4 className="hiw-title">{item.title}</h4>
+                  <div className="hiw-text">
+                    {item.text.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </article>
+              </motion.li>
             ))}
-          </div>
+          </ol>
         </motion.div>
       </div>
     </section>

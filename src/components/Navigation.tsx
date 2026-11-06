@@ -1,103 +1,90 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
+import ThemeToggle from './ThemeToggle';
+import { scrollToId } from '../lib/scroll';
+
+const NAV_ITEMS = [
+  { id: 'landing', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' }
+];
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('landing');
-
-  const navItems = [
-    { id: 'landing', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' }
-  ];
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      // Use a more reliable scroll method
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
-      });
-    }
-  };
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
+  const lockUntil = useRef(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = navItems.map(item => item.id);
-      const scrollPosition = window.scrollY;
-      const viewportHeight = window.innerHeight;
-      
-      let currentSection = 'landing'; // Default to landing
+    let ticking = false;
 
-      // Special case: if we're at the very top, always show landing
-      if (scrollPosition < 50) {
-        setActiveSection('landing');
-        return;
-      }
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY;
+      const delta = y - lastY.current;
+      const now = Date.now();
 
-      // Find which section is most visible in the viewport
-      let maxVisibility = 0;
-      let mostVisibleSection = 'landing';
+      // Göm vid skroll nedåt, visa vid skroll uppåt (och alltid högst upp)
+      if (now < lockUntil.current || y < 80) setHidden(false);
+      else if (delta > 6) setHidden(true);
+      else if (delta < -6) setHidden(false);
+      lastY.current = y;
 
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
-        
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const elementTop = Math.max(0, rect.top);
-          const elementBottom = Math.min(viewportHeight, rect.bottom);
-          const visibleHeight = Math.max(0, elementBottom - elementTop);
-          const visibility = visibleHeight / viewportHeight;
-
-          // If this section is more visible than the current max, make it active
-          if (visibility > maxVisibility) {
-            maxVisibility = visibility;
-            mostVisibleSection = sectionId;
-          }
+      // Aktiv sektion = den sista vars topp passerat 35 % av skärmen
+      const atBottom = window.innerHeight + y >= document.documentElement.scrollHeight - 4;
+      let current = 'landing';
+      if (atBottom) current = NAV_ITEMS[NAV_ITEMS.length - 1].id;
+      else {
+        for (const item of NAV_ITEMS) {
+          const el = document.getElementById(item.id);
+          if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.35) current = item.id;
         }
       }
-
-      // Only update if we found a section with reasonable visibility (at least 20%)
-      if (maxVisibility > 0.2) {
-        currentSection = mostVisibleSection;
-      }
-      
-      setActiveSection(currentSection);
+      setActiveSection(current);
     };
 
-    // Run once on mount to set initial active section
-    handleScroll();
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [navItems]);
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    const onLock = () => {
+      lockUntil.current = Date.now() + 1200;
+      setHidden(false);
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('nav:lock', onLock);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('nav:lock', onLock);
+    };
+  }, []);
 
   return (
-    <motion.nav 
-      className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-white/95 backdrop-blur-md rounded-2xl border border-[#E09789]/30 shadow-lg shadow-[#E09789]/20 px-2 py-2 lg:top-6 lg:bottom-auto"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <ul className="flex space-x-1">
-        {navItems.map((item) => (
+    <nav aria-label="Main" className={`site-nav ${hidden ? 'is-hidden' : ''}`}>
+      <ul className="site-nav__list">
+        {NAV_ITEMS.map((item) => (
           <li key={item.id}>
-            <button
-              onClick={() => scrollToSection(item.id)}
-              className={`px-3 py-2.5 lg:px-5 lg:py-2.5 rounded-xl transition-all duration-300 text-xs lg:text-sm font-medium cursor-pointer ${
-                activeSection === item.id 
-                  ? 'text-[#353B45] bg-gradient-to-r from-[#E09789]/20 to-[#E09789]/10 shadow-sm border border-[#E09789]/30' 
-                  : 'text-[#353B45]/70 hover:text-[#353B45] hover:bg-[#F6EFE7]/50'
-              }`}
+            <a
+              href={`#${item.id}`}
+              className="site-nav__link"
+              aria-current={activeSection === item.id ? 'location' : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToId(item.id);
+              }}
             >
               {item.label}
-            </button>
+            </a>
           </li>
         ))}
       </ul>
-    </motion.nav>
+      <span className="site-nav__sep" aria-hidden="true" />
+      <ThemeToggle />
+    </nav>
   );
 };
 

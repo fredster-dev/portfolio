@@ -3,8 +3,18 @@
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Minimalistic UX Designer Portfolio</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+      <title>Fredrik Fehrm – UX/UI Designer</title>
+      <script>
+        // Sätt rätt tema innan sidan ritas, så att den inte blinkar vitt i mörkt läge
+        (function () {
+          try {
+            var saved = localStorage.getItem('theme');
+            var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (dark) document.documentElement.classList.add('dark');
+          } catch (e) {}
+        })();
+      </script>
     </head>
 
     <body>
@@ -12,4 +22,3 @@
       <script type="module" src="/src/main.tsx"></script>
     </body>
   </html>
-  
